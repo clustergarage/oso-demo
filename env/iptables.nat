@@ -1,0 +1,6 @@
+ #!/bin/bash
+
+ iptables -t nat -A POSTROUTING -o enp5s0 -j MASQUERADE
+ iptables -A FORWARD -i enp5s0 -o enp3s0f0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+ iptables -A FORWARD -i enp3s0f0 -o enp5s0 -j ACCEPT
+

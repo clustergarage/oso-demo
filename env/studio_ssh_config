@@ -1,0 +1,36 @@
+Host black-pearl
+    Hostname black-pearl.local
+    User pirate
+Host black-pearl-2
+    Hostname black-pearl-2.local
+    User pirate
+Host black-pearl-3
+    Hostname black-pearl-3.local
+    User pirate
+Host black-pearl-4
+    Hostname black-pearl-4.local
+    User pirate
+Host ts1
+    Hostname ts1.maas
+    User ubuntu
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    LogLevel=QUIET
+Host ts2
+    Hostname ts2.maas
+    User ubuntu
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    LogLevel=QUIET
+Host ts3
+    Hostname ts3.maas
+    User ubuntu
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    LogLevel=QUIET
+Host ts4
+    Hostname ts4.maas
+    User ubuntu
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    LogLevel=QUIET
