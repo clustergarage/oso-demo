@@ -1,14 +1,9 @@
 #!/bin/bash 
 
-echo "Configuring hosts..."
 for node in ts{1..4}; do
-  echo "$node: uploading configuration"
   scp ./resource/config-oso-host $node:
-  echo "$node: Base configuring"
   ssh $node "sudo node=$node ./config-oso-host" &
   PID[${node: -1}]=$!
 done
 
 wait ${PID[*]}
-echo "Base configured all hosts"
-echo '############################################################'
