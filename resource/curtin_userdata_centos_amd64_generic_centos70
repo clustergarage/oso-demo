@@ -16,29 +16,33 @@ storage:
   - id: sda-part1
     type: partition
     device: sda
-    size: 1GB
+    size: 900GB
     flag: boot
   - id: sda-part1-fs1
     type: format
     fstype: xfs
-    label: boot
+    label: centos
     volume: sda-part1
-  - id: sda-part2
-    type: partition
-    device: sda
-    size: 800GB
-  - id: sda-part2-fs1
-    type: format
-    fstype: ext4
-    label: centos7
-    volume: sda-part2
-  - id: sda-part2-fs1-mount0
+  - id: sda-part1-fs1-mount0
     type: mount
     path: /
-    device: sda-part2-fs1
-  - id: sda-part3
+    device: sda-part1-fs1
+  - id: sdb
+    type: disk
+    ptable: msdos
+    path: /dev/sdb
+    name: maindisk
+  - id: sdb-part1
     type: partition
-    device: sda
-    size: 128GB
-    label: swap
-    flag: swap
+    device: sdb
+    size: 900GB
+    flag: boot
+  - id: sdb-part1-fs1
+    type: format
+    fstype: xfs
+    label: data
+    volume: sdb-part1
+  - id: sdb-part1-fs1-mount0
+    type: mount
+    path: /
+    device: sdb-part1-fs1
