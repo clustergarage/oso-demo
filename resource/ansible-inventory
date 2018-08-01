@@ -15,7 +15,7 @@ ansible_become=true
 
 openshift_deployment_type=origin
 
-openshift_release="3.10"
+openshift_release="3.9"
 openshift_master_default_subdomain=apps.test.example.com
 openshift_master_cluster_hostname=jackdaw.maas
 # uncomment the following to enable htpasswd authentication; defaults to DenyAllPasswordIdentityProvider
