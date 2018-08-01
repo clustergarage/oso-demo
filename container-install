@@ -1,0 +1,24 @@
+#!/bin/bash
+
+docker run -it \
+    --dns 192.168.0.200 \
+    -u `id -u` \
+    -v $HOME/.ssh/id_rsa:/opt/app-root/src/.ssh/id_rsa:Z \
+    -v $HOME/.ssh/known_hosts:/opt/app-root/src/.ssh/known_hosts:Z \
+    -v $HOME/.ssh/config:/opt/app-root/src/.ssh/config:Z \
+    -v $PWD/resource/ansible-inventory:/tmp/inventory:Z \
+    -e INVENTORY_FILE=/tmp/inventory \
+    -e PLAYBOOK_FILE=playbooks/prerequisites.yml \
+    -e OPTS="-v" \
+    docker.io/openshift/origin-ansible:v3.9 $1
+docker run -it \
+    --dns 192.168.0.200 \
+    -u `id -u` \
+    -v $HOME/.ssh/id_rsa:/opt/app-root/src/.ssh/id_rsa:Z \
+    -v $HOME/.ssh/known_hosts:/opt/app-root/src/.ssh/known_hosts:Z \
+    -v $HOME/.ssh/config:/opt/app-root/src/.ssh/config:Z \
+    -v $PWD/resource/ansible-inventory:/tmp/inventory:Z \
+    -e INVENTORY_FILE=/tmp/inventory \
+    -e PLAYBOOK_FILE=playbooks/deploy_cluster.yml \
+    -e OPTS="-v" \
+    docker.io/openshift/origin-ansible:v3.9 $1

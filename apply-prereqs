@@ -1,0 +1,11 @@
+#!/bin/bash 
+
+for node in ts{1..4}; do
+  ssh-keygen -f "/home/jack/.ssh/known_hosts" -R "${node}.maas"
+  scp -F ./env/studio_ssh_config ./resource/config-oso-host $node:
+  ssh -F ./env/studio_ssh_config $node "sudo node=$node ./config-oso-host" &
+  PID[${node: -1}]=$!
+done
+
+wait ${PID[*]}
+

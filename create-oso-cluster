@@ -1,9 +1,0 @@
-#!/bin/bash 
-
-for node in ts{1..4}; do
-  scp ./resource/config-oso-host $node:
-  ssh $node "sudo node=$node ./config-oso-host" &
-  PID[${node: -1}]=$!
-done
-
-wait ${PID[*]}
