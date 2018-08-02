@@ -16,10 +16,15 @@ ansible_become=true
 openshift_deployment_type=origin
 
 openshift_release="3.9"
-openshift_master_default_subdomain=apps.test.example.com
-openshift_master_cluster_hostname=jackdaw.maas
+openshift_master_cluster_hostname=ts1.maas
 # uncomment the following to enable htpasswd authentication; defaults to DenyAllPasswordIdentityProvider
-openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider'}]
+#openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider'}]
+
+openshift_master_api_url=https://ts1.maas:8443
+
+# network/dns
+openshift_master_default_subdomain=apps.test.example.com
+os_sdn_network_plugin_name="redhat/openshift-ovs-networkpolicy"
 
 # host group for masters
 [masters]
